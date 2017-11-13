@@ -61,8 +61,5 @@ def matrizes(prop):
 		Kf = np.delete(Kf, remover_indices, axis=i)
 	K2 = np.delete(K, remover_indices, axis=1)
 	Ff = np.delete(Ff, remover_indices)
-	#print(K2)
-	#print(F)
-	#print(Kf)
-	#print(Ff)
+
 	return K, F, Kf, Ff, K2

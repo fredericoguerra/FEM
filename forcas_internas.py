@@ -26,5 +26,4 @@ def forcas_internas(prop, X):
 		stress = E[elemento] * strain
 		forcin.append(stress)
 
-
 	return forcin
