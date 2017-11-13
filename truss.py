@@ -9,17 +9,17 @@ def setup():
 	y_axis = np.array([0,1])
 
 	# define the model
-	nodes              = { 1:[0,10], 2:[0,0], 3:[10,5]}
+	nodes              = { 1:[0,0], 2:[0,1.5], 3:[2,0] }
 	degrees_of_freedom = { 1:[1,2], 2:[3,4], 3:[5,6] }
-	elements 		   = { 1:[1,3], 2:[2,3] }
-	restrained_dofs    = [1, 2, 3, 4]
-	forces             = { 1:[0,0], 2:[0,0], 3:[0,-200] }
+	elements 		   = { 1:[1,2], 2:[2,3], 3:[3,1] }
+	restrained_dofs    = [1, 3, 4]
+	forces             = { 1:[0,-20], 2:[0,0], 3:[0,-45] }
 
 	# material properties - AISI 1095 Carbon Steel (Spring Steel)
-	densities   = {1:0.284, 2:0.284}
-	stiffnesses = {1:30.0e6, 2:30.0e6}
+	densities   = {1:0.284, 2:0.284, 3:0.284}
+	stiffnesses = {1:200.0e6, 2:200.0e6, 3:200.0e6}
 	# geometric properties
-	areas = {1:1.0, 2:2.0}
+	areas = {1:15.0e-4, 2:15.0e-4, 3:15.0e-4}
 
 	ndofs = 2 * len(nodes)
 
@@ -169,10 +169,10 @@ def get_stresses(properties, X):
 	return stresses
 
 def show_results(X, stresses, frequencies):
-	print 'Nodal Displacments:', X
-	print 'Stresses:', stresses
-	print 'Frequencies:', frequencies
-	print 'Displacment Magnitude:', round(norm(X),5)
+	print ('Nodal Displacments:', X)
+	print ('Stresses:', stresses)
+	print ('Frequencies:', frequencies)
+	print ('Displacment Magnitude:', round(norm(X),5))
 	print
 
 
